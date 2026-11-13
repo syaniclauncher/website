@@ -1,31 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0c0c0e">
 <title>SyanicLauncher</title>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
 
 <style>
 * { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 img { -webkit-user-drag: none; user-drag: none; }
-
-body { margin: 0; min-height: 100vh; display: flex; flex-direction: column; background: #0c0c0e; color: #eee; font-family: Arial; }
-.banner { padding: 11px 20px; background: #17191c; color: #aaa; text-align: center; font-size: 13px; }
+body { margin: 0; min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; background: #0c0c0e; color: #eee; font-family: Arial, sans-serif; overflow-x: hidden; }
+.banner { padding: 11px 20px; background: #17191c; color: #aaa; text-align: center; font-size: 13px; line-height: 1.4; }
 main { width: min(1200px, 100%); flex: 1; margin: auto; padding: 70px 30px; display: flex; align-items: center; gap: 65px; }
 .content, .preview { flex: 1; min-width: 0; }
-h1 { margin: 0 0 12px; font-size: 46px; }
+h1 { margin: 0 0 12px; font-size: 46px; line-height: 1.15; overflow-wrap: anywhere; }
 p { max-width: 440px; margin: 0 0 30px; color: #aaa; font-size: 19px; line-height: 1.5; }
-.button { display: inline-flex; align-items: center; gap: 10px; padding: 12px 20px; border-radius: 5px; background: #ff4344; color: white; text-decoration: none; font-size: 16px; }
+.button { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 20px; border-radius: 5px; background: #ff4344; color: white; text-decoration: none; font-size: 16px; }
 .button i { font-size: 21px; }
 .preview { flex: 1.25; }
-.preview img { display: block; width: 100%; border-radius: 5px; }
-footer { padding: 22px 20px; color: #777; text-align: center; font-size: 12px; }
+.preview img { display: block; width: 100%; height: auto; border-radius: 5px; }
+footer { padding: 22px 20px; color: #777; text-align: center; font-size: 12px; line-height: 1.5; }
 footer a { color: #aaa; text-decoration: none; }
 footer a:hover { color: #6ca9df; }
 
-@media (max-width: 750px) {
-    main { flex-direction: column; align-items: stretch; padding: 55px 22px; gap: 45px; }
+@media (max-width: 930px) {
+    main { gap: 40px; padding: 55px 24px; }
+    h1 { font-size: 40px; }
+}
+
+@media (max-width: 780px) {
+    main { flex-direction: column; align-items: stretch; justify-content: center; padding: 40px 22px; gap: 36px; }
+    .content, .preview { flex: none; }
+    .content { text-align: center; }
     h1 { font-size: 36px; }
-    p { font-size: 17px; }
+    p { max-width: none; font-size: 17px; margin-bottom: 24px; }
+    .button { width: 100%; }
+}
+
+@media (max-width: 400px) {
+    .banner { font-size: 12px; padding: 10px 14px; }
+    main { padding: 32px 16px; gap: 30px; }
+    h1 { font-size: 30px; }
+    p { font-size: 16px; }
+}
+
+@supports (padding: max(0px)) {
+    body { padding-left: env(safe-area-inset-left); padding-right: env(safe-area-inset-right); padding-bottom: env(safe-area-inset-bottom); }
 }
 </style>
+</head>
+<body>
 
 <div class="banner">Note: SyanicLauncher is still <b>under active development.</b></div>
 
@@ -43,3 +70,5 @@ footer a:hover { color: #6ca9df; }
 <footer>© <span id="year">2026</span> <a href="https://github.com/xsyanic">@xsyanic</a> - Not affiliated with Mojang or Microsoft.</footer>
 <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 
+</body>
+</html>
